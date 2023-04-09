@@ -1,0 +1,284 @@
+@import "./mixin";
+.header {
+    background-image: url(../images/copper-bg.png);
+    @include background;
+    width: 100%;
+    height: 100vh;
+}
+
+.navbar {
+    &__input {
+        display: none;
+    }
+    &__open {
+        &--burger {
+            background: linear-gradient(92.18deg, #5E3928 20.13%, #E4A16F 92.93%);
+            padding: 10px 25px 10px 15px;
+            display: none;
+        }
+    }
+    &__close {
+        display: none;
+    }
+    &__left {
+        height: 90px;
+        display: flex;
+        align-items: center;
+    }
+    &__menu {
+        display: flex;
+        gap: 50px;
+        margin: 15px 0 0 70px;
+        &--link {
+            color: $main-color;
+            line-height: 96.4%;
+            font: {
+                family: "Mont";
+                weight: 600;
+                size: 16px;
+            }
+            &:hover {
+                color: #5e3928;
+                text-decoration: underline;
+                transition: all 0.5s;
+            }
+        }
+    }
+    &__icons {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 20px;
+        max-width: 200px;
+        margin-left: auto;
+        position: relative;
+        top: -110px;
+        right: 0px;
+        &--box,
+        &--box1 {
+            background-color: $main-color;
+            height: 90px;
+            width: 50px;
+            padding: 50px 10px 0 10px;
+        }
+    }
+}
+
+.hero {
+    display: flex;
+    gap: 50px;
+    &Left {
+        &__title {
+            max-width: 510px;
+            color: $main-color;
+            line-height: 72%;
+            font: {
+                family: "Lighthaus";
+                weight: 400;
+                size: 100px;
+            }
+        }
+        &__line {
+            max-width: 470px;
+            height: 1px;
+            border: none;
+            margin-top: 50px;
+            background: linear-gradient( 90deg, rgba(255, 255, 255, 0.9587185215883228) 28%, rgba(255, 255, 255, 1) 42%, rgba(255, 255, 255, 0.10437678489364499) 76%);
+        }
+        &__text {
+            margin-top: 40px;
+            color: $main-color;
+            max-width: 533px;
+            line-height: 96.4%;
+            font: {
+                weight: 800;
+                size: 50px;
+                family: "Mont";
+            }
+        }
+        &__price {
+            margin: 30px 0;
+            display: flex;
+            max-width: 250px;
+            justify-content: space-between;
+            &--cost,
+            &--value {
+                line-height: 96.4%;
+                color: $main-color;
+                font: {
+                    family: "Mont";
+                    weight: 400;
+                    size: 30px;
+                }
+            }
+            &--value {
+                font-weight: 800px;
+            }
+        }
+        &__btn {
+            @include button;
+        }
+        &__rectangle {
+            margin-top: 30px;
+            display: flex;
+            gap: 10px;
+        }
+        &__line2 {
+            margin: 10px 0 4px 8px;
+            width: 1px;
+            height: 30px;
+            border: 1px solid $main-color;
+        }
+    }
+    &__right {
+        position: relative;
+        top: -75px;
+        left: 110px;
+    }
+}
+
+@media screen and(max-width: 992px) {
+    .container {
+        max-width: 700px;
+    }
+    .header {
+        background-image: url(../images/tablet-bg.png);
+        @include background;
+        height: 1200px;
+    }
+    .navbar__left {
+        flex-direction: column;
+        align-items: flex-start;
+        &--logo {
+            margin-top: 30px;
+        }
+    }
+    .navbar__menu {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-left: 0;
+        margin-top: 60px;
+    }
+    .hero {
+        margin-top: 178px;
+    }
+    .heroLeft__title {
+        line-height: 114%;
+        font-size: 60px;
+        max-width: 493px;
+    }
+    .heroLeft__line {
+        width: 388px;
+        margin-top: 20px;
+    }
+    .heroLeft__text {
+        max-width: 357px;
+        font-size: 30px;
+        line-height: 128%;
+    }
+    .heroLeft__price {
+        &--cost,
+        &--value {
+            font-size: 24px;
+        }
+    }
+    .heroLeft__btn {
+        width: 244px;
+        margin-top: 50px;
+        margin-bottom: 207px;
+    }
+    .heroLeft__line2 {
+        margin-top: 55px;
+    }
+    .hero__right {
+        position: relative;
+        top: 205px;
+        left: -125px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .container {
+        padding: 0 15px;
+    }
+    .header {
+        background-image: url(../images/mobile-bg.png);
+        @include background;
+        height: 170vh;
+    }
+    .navbar__icons--box1 {
+        display: none;
+    }
+    .navbar__open--burger {
+        display: block;
+        margin-top: 60px;
+    }
+    .navbar__icons {
+        right: 70px;
+    }
+    .navbar__left {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .navbar__menu {
+        flex-direction: column;
+        height: 166vh;
+        background: linear-gradient(92.18deg, #5E3928 20.13%, #E4A16F 92.93%);
+        position: absolute;
+        top: -70px;
+        left: 0;
+        z-index: 1;
+        align-items: center;
+        &--link {
+            font-size: 40px;
+        }
+        transform: translateX(-150%);
+    }
+    input[type="checkbox"]:checked~.navbar .navbar__left {
+        transform: translateX(150%);
+        transition: 0.5s ease;
+    }
+    input[type="checkbox"]:checked~.navbar .navbar__icons--box1 {
+        display: block;
+    }
+    .navbar__close {
+        display: block;
+        position: absolute;
+        top: 100px;
+        left: 40px;
+    }
+    .heroLeft {
+        &__title {
+            max-width: 210px;
+            margin-top: -155px;
+            font-size: 40px;
+        }
+        &__line {
+            width: 170px;
+            margin: 18px 0;
+        }
+        &__text {
+            font-size: 25px;
+            max-width: 200px;
+        }
+        &__price {
+            margin-top: 15px;
+            max-width: 164;
+            gap: 49px;
+            &--cost,
+            &--value {
+                font-size: 24px;
+            }
+        }
+        &__btn {
+            width: 155px;
+            margin-top: 59px;
+            margin-bottom: 200px;
+        }
+    }
+    .hero__right--hand {
+        display: none;
+    }
+}

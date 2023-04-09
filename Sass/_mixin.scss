@@ -1,0 +1,29 @@
+@mixin background {
+    background: {
+        size: cover;
+        position: center;
+        repeat: no-repeat;
+    }
+}
+
+@mixin button {
+    width: 327px;
+    height: 50px;
+    color: $main-color;
+    background: linear-gradient(92.18deg, #5E3928 20.13%, #E4A16F 92.93%);
+    border: none;
+    font: {
+        size: 18px;
+        weight: 800;
+        family: 'Mont';
+    }
+    &:hover {
+        color: blue;
+        background: aqua;
+        border: 5px solid rgba(22, 22, 218, 0.888);
+        border-radius: 25px;
+        cursor: pointer;
+        transition: all 0.5s;
+        transform: scale(1.2);
+    }
+}
